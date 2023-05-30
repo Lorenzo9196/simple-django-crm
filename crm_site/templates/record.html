@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<h1>Usuarios!</h1>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    {{ customer_record.first_name }} {{ customer_record.last_name }}
+   
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email: {{ customer_record.email }}</li>
+    <li class="list-group-item">Phone: {{ customer_record.phone }}</li>
+    <li class="list-group-item">Adress: {{ customer_record.address }}</li>
+    <li class="list-group-item">City: {{ customer_record.city }}</li>
+    <li class="list-group-item">State: {{ customer_record.state }}</li>
+    <li class="list-group-item">Zipcode: {{ customer_record.zipcode }}</li>
+    <li class="list-group-item">Created at: {{ customer_record.created_at }}</li>
+  </ul>
+    <br>
+    <div class="container text-center">
+    <div class="row align-items-start">
+        <a class="btn btn-primary col">Update</a>
+        <a class="btn btn-danger col" href="{% url 'delete' customer_record.id %}">Delete</a>
+    </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
