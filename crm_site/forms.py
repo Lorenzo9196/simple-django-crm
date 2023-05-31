@@ -32,4 +32,19 @@ class SignUpForm(UserCreationForm):
 		self.fields['password2'].label = ''
 		self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'	
 
+class AddRecordForm(forms.ModelForm):
+	first_name = forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"first name"}), label="")
+	last_name =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"last name"}), label="")
+	email =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"email"}), label="")
+	phone = forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"phone"}), label="")
+	address =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"address"}), label="")
+	city =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"city"}), label="")
+	state =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"state"}), label="")
+	zipcode =  forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"zipcode"}), label="")
+	# created_at = forms.CharField(required=True, max_length=100, widget=forms.widgets.TextInput(attrs={'class':"form-control", 'placeholder':"created_at"}), label="")
+
+	class Meta:
+		model = Record
+		exclude = ('user', )
+
 
